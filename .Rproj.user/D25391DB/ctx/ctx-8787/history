@@ -1,0 +1,10 @@
+install.packages(vitea)
+tinytex::tlmgr_install("fontawesome")
+tlmgr update --self
+install.packages('tinytex')
+tinytex::install_tinytex()
+install.packages("tinytex")
+unlink("CV/CV_cache", recursive = TRUE)
+unlink("CV/CV_cache", recursive = TRUE)
+setwd("~/Documents/00_PhD/GITHUB/CV")
+gc()

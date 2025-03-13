@@ -1,0 +1,93 @@
+---
+name: Upalabdha Dey
+# surname: Dey
+position: "Phd Candidate"
+pronouns: he/him
+address: "Dept of Molecular Biology and Biotechnologym, Tezpur University"
+phone: +(91)-9564962111
+email: "upalabdhadey@gmail.com"
+twitter: upalabdha
+github: upalabdhaD
+linkedin: upalabdha-dey-72a18b140
+aboutme: "I specialize in the dynamic intersection of genomics, statistics, and computational biology. My PhD research
+delves into the specific modes of DNA‐protein interactions, examining DNA’s three‐dimensional shape, flexibility, and various sequence analysis methods. Additionally, I explore pivotal questions in microbial genomics and metabolic disorders. Passionate about open science and reproducible research, I am dedicated to advancing these principles within the scientific community."
+date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+bibliography: 'data/ud.bib'
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+```
+
+
+# Education
+
+```{r}
+read_tsv("data/education.tsv") %>% 
+  detailed_entries(with, where, degree,  paste0(startYear,"-", endYear), details)
+```
+
+
+# Skills
+
+```{r}
+read_tsv("data/skills.tsv") %>% 
+  group_by(cat) %>%
+  detailed_entries(what = skill, with = area)
+```
+
+
+# Achievements
+
+```{r}
+read_tsv("data/achivements.tsv") %>% 
+  detailed_entries(what = detail, 
+                   when = paste0(host, "-", year), 
+                   with = item)
+ 
+```
+
+
+# Presentations and workshops
+
+```{r}
+
+read_tsv("data/poster_workshop.tsv") %>% 
+  # arrange(start) %>%
+  detailed_entries(with = item, 
+                   when = paste0(start, "-", end), 
+                   where = paste0(Organizer))
+
+```
+
+
+# Publications
+
+```{r publications}
+
+# Use this scholar function to fetch the latest publication records
+# as a df; needs internet connection
+# scholar::get_publications(id = "ew-BXOUAAAAJ&hl")
+
+
+read_tsv("data/publication.tsv") %>% 
+  arrange(-year) %>% 
+  mutate(f_author = gsub('Dey, Upalabdha', '*Dey, Upalabdha', author)
+) %>% 
+  detailed_entries(with = title,
+                   what = paste0(f_author, "    ", DOI),
+                   when = year, 
+                   where = paste0(journal,"
+                                  (",publisher,")"),
+                   .protect = T
+                   )
+
+
+```
+

@@ -1,0 +1,13 @@
+cat	area	skill
+General	Management	Research grant writing, Project handling, Traning Human resources
+Technical	Programming languages	Bash and shell scripting, R, Python, SQL
+Technical	Markup languages	Markdown, Rmarkdown
+Technical	Version control	Git, Github
+Technical	Containerization	Docker, Singularity
+Technical	Others	Inkscape, Latex
+Technical	Software packaging and distribution	Pip, Conda, Github workflow
+Bioinfo	Genomics	Microbial genome assembly, Hybrid genome assembly, ChIP-Seq
+Bioinfo	Transcriptomics	RNA-Seq, scRNA-Seq
+Bioinfo	Metagenomics	16s-rRNA, Shotgun metagenomics, Metagenoic assembled genomes (MAG)
+Bioinfo	Workflow management/pipeline	Snakemake
+Bioinfo	Databases	NCBI-GEO, ENCODE, ReMAP, JASPAR, CisBP
